@@ -17,3 +17,10 @@ with st.form(key='profile_form'):
         st.text(f'趣味：{",".join(hobby)}')
 #詳しくは、Streamlit inputウィジェット ▶︎ https://docs.streamlit.io/library/api...
 
+#音声ファイルをアップロード
+uploadedFile = st.file_uploader("音声ファイルをアップロードしてください",type=["mp3","wav","ogg"])
+#アップロードされたら処理
+if uploadedFile is not None:
+    #ファイル表示
+    st.audio(uploadedFile, format="audio/mp3")
+    st.success("音声ファイルをアップロードしました")
