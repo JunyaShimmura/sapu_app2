@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 st.title('サンプルアプリ')
-st.caption('これはサンプル用のアプリです')
+st.caption('これはサンプル用のアプリです02')
 
 Image = Image.open('./data/samplePng.png')
 st.image(Image, width=200)
