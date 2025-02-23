@@ -1,7 +1,8 @@
 import streamlit as st
 
+# Session State にテキストデータを保存 streamlitはボタン押すとリロードするからsession管理
 if "text_data" not in st.session_state:
-    st.session_state.text_data =""
+    st.session_state.text_data =""  #初期化
 text_data ="テキスト"
 with st.form(key='profile_form'):
     name = st.text_input('名前')
@@ -30,13 +31,11 @@ if uploadedFile is not None:
     st.audio(uploadedFile, format="audio/mp3")
     st.success("音声ファイルをアップロードしました")
 
-#ダウンロード処理 form の外で
-submitted_btn = st.button("ダウンロード")
-if submitted_btn :
-    st.download_button(
-        label="テキストをダウンロード",
-        data=st.session_state.text_data,
-        file_name="downloadTxt.txt",
-        mime="text/plain"
-    ) 
+#ダウンロード処理 
+st.download_button(
+    label="テキストをダウンロード",
+    data=st.session_state.text_data,
+    file_name="downloadTxt.txt",
+    mime="text/plain"
+) 
 
